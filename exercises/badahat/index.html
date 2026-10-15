@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>תרגיל בדה"ת – שו"ב הגנת בסיס</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;--muted:#5d6675;--line:#dde1e7;--ok:#1f7a4d;--bad:#b3261e;--acc:#2f5bd3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171c;--card:#1c2027;--ink:#e6e9ee;--muted:#9aa3b0;--line:#2c323b;--ok:#4cc38a;--bad:#ff7b72;--acc:#7c9cff}}
+:root[data-theme="dark"]{--bg:#14171c;--card:#1c2027;--ink:#e6e9ee;--muted:#9aa3b0;--line:#2c323b;--ok:#4cc38a;--bad:#ff7b72;--acc:#7c9cff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,Arial,sans-serif}
+main{max-width:1000px;margin:auto;padding:24px 16px}
+h1{font-size:1.6rem;margin:0 0 4px}h2{font-size:1.2rem;margin:28px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:12px 0}
+.muted{color:var(--muted)}table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:right;vertical-align:top}
+th{position:sticky;top:0;background:var(--card)}.num{white-space:nowrap;text-align:center}
+.wrap{overflow-x:auto}.bar{position:sticky;top:0;z-index:2;display:flex;gap:16px;flex-wrap:wrap}
+.kpi b{font-size:1.4rem;display:block}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.dep{font-size:.8rem;color:var(--muted)}ol li{margin:6px 0}textarea{width:100%;min-height:80px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px;font:inherit}
+</style>
+</head>
+<body><main>
+<h1>תרגיל בדה"ת – מערכת שו"ב להגנת בסיס</h1>
+<p class="muted">טיוטה · תכולות מתוך "תכולות לתרגיל בדהת ותרגיל דמצ – אוקטובר 2026". ההמשך של תרגיל הדמ"צ: צוות התכנון מקבל את הדרישה ובודק אם אפשר לממש אותה במסגרת התקציב והזמן.</p>
+
+<div class="card">
+<h2 style="margin-top:0">תרחיש</h2>
+<p>בעקבות אירוע חדירה בגזרה, אישר המטה פרויקט להקמת מערכת שו"ב מרכזית להגנה על בסיס. אתם צוות בדיקת ההתכנות (בדה"ת). עליכם להמליץ לוועדת ההיגוי מה ייכלל בפרויקט, כמה הוא יעלה ומתי יגיע לכשירות מבצעית.</p>
+<p><b>אילוצים:</b> תקציב של עד <b><span id="capB">15</span> מש"ח</b>, ויעד כשירות מבצעית של <b><span id="capT">12</span> חודשים</b>. הערכים ניתנים לשינוי בהמשך הדף.</p>
+<p><b>חוקי תלות:</b> לתכולה שמסומנת "דורש #" אין ערך בלי התכולה שהיא תלויה בה. תכולה תלויה מתחילה רק בגמר התכולה שקודמת לה.</p>
+</div>
+
+<div class="card bar">
+<div class="kpi">עלות מצטברת<b id="cost">0</b></div>
+<div class="kpi">משך משוקלל (נתיב קריטי)<b id="time">0</b></div>
+<div class="kpi">תכולות<b id="cnt">0</b></div>
+<div class="kpi">סטטוס<b id="status">—</b></div>
+<label>תקציב <input id="inB" type="number" value="15" step="0.5" style="width:70px"></label>
+<label>חודשים <input id="inT" type="number" value="12" style="width:60px"></label>
+</div>
+<div id="warn" class="bad"></div>
+
+<div class="card wrap"><table>
+<thead><tr><th></th><th>#</th><th>תכולה</th><th class="num">עלות</th><th class="num">לו"ז</th><th>הערות</th></tr></thead>
+<tbody id="rows"></tbody></table></div>
+
+<h2>משימות לצוות</h2>
+<div class="card"><ol>
+<li><b>חלופה מינימלית (MVP):</b> בחרו את המענה הקטן ביותר שעדיין מטפל באירוע החדירה. נמקו כל תכולה שבחרתם.</li>
+<li><b>חלופה מומלצת:</b> בנו חלופה שעומדת בתקציב ובלו"ז. מה השארתם בחוץ, ומה המחיר המבצעי של כל השמטה?</li>
+<li><b>חלופה מורחבת:</b> אם התקציב יגדל ל-25 מש"ח והלו"ז ל-18 חודשים, מה הייתם מוסיפים ובאיזה סדר?</li>
+<li><b>פריסה בשלבים:</b> חלקו את החלופה המומלצת לשלבים (למשל 0–6 חודשים ו-6–12 חודשים). מה ייתן ערך מבצעי ראשון כבר בחודש 6?</li>
+<li><b>סיכונים:</b> זהו לפחות 4 סיכונים (טכנולוגי, לו"ז, תקציב, אינטגרציה, סייבר) ולכל אחד דרגו סבירות והשפעה והציעו מענה.</li>
+<li><b>המלצה לוועדה:</b> כתבו המלצה בעמוד אחד: האם יש התכנות, באיזו חלופה, ובאילו תנאים.</li>
+</ol>
+<h3>מעורר דיון למנחה</h3>
+<ul class="muted">
+<li>המכ"מ (5.5) ויירוט הרחפנים (6) הם 11.5 מש"ח יחד, כמעט כל התקציב. האם האיום מצדיק אותם?</li>
+<li>גדר אינדקטיבית ויירוט רחפנים (14 חודשים) חורגים מהלו"ז לבדם. האם לדחות אותם לשלב ב' או לקבל חריגה?</li>
+<li>יכולות "רכות" כמו סייבר, DR וגיבוי תקשורת: האם אפשר לוותר עליהן במערכת מבצעית?</li>
+</ul></div>
+
+<h2>תוצר הצוות</h2>
+<div class="card"><textarea placeholder="המלצת הצוות…"></textarea></div>
+</main>
+<script>
+const D=[
+[1,"ממשק משתמש אחוד (GUI מבצעי)",1,7,[2],"מסך עבודה יחיד שמרכז את כל המידע המבצעי"],
+[2,"תמונה מרחבית זמ\"א (ליבת השו\"ב)",1.5,9,[],"COP על מפת GIS שכבתית"],
+[3,"יומן אירועים (תחקור/דוחות)",0.75,5,[2],"רישום אוטומטי לתחקור והפקת לקחים"],
+[4,"פריסת סנסורים: חיישני גדר, מצלמות",2,10,[],"מעטפת גילוי היקפית של 360°"],
+[5,"פריסת סנסורים: מכ\"מ קרקעי ואווירי",5.5,12,[2],"מענה מכ\"מי שמשולב בשו\"ב"],
+[6,"גדר אינדקטיבית היקפית",4.5,14,[],"מכשול חכם עם התרעה ברמת מטרים"],
+[7,"שליטה מרחוק במצלמות ובחיישנים",1,6,[4],"צידוד, הגבהה וזום מעמדת המפעיל"],
+[8,"משיבי מיקום לכוחות תגובה",0.5,4,[2],"תמונת כוחותינו ומניעת ירי דו-צדדי"],
+[9,"מעקב אחר מיקום רכבי סיור והתרעה",0.75,4,[2],"GPS והתרעה לתא הנהג"],
+[10,"יכולת יירוט רחפנים",6,14,[],"Soft-Kill / Hard-Kill"],
+[11,"שליטה על מערכות חירום בבסיס",2,6,[2],"דלק, מים וחשמל מרחוק"],
+[12,"יכולת סרינה וכריזה מרכזית",0.75,4,[],"התרעה המונית מסונכרנת עם השו\"ב"],
+[13,"אינטגרציה עם מערכת בקרת כניסה",1,6,[2],"שערים, כרטיסים ומחסומים"],
+[14,"ניתוח תקלות ואנומליות (חיישנים)",1,10,[4],"AI לזיהוי חבלה וחריגות"],
+[15,"מערכת גיבוי תקשורת",0.75,6,[],"ערוצי RF ולוויין חלופיים"],
+[16,"הקמת אתר DR",3,12,[2],"שליטה רציפה כשהחמ\"ל נפגע"],
+[17,"יכולת סימולציה והדמיה",2,12,[1,2],"Digital Twin לתרגול"],
+[18,"התראות חכמות לפי סף מוגדר",1,6,[2],"צמצום התרעות שווא"],
+[19,"לחצני מצוקה בנקודות שמירה",0.5,4,[1],"התרעה מתפרצת ופתיחת מצלמות"],
+[20,"מערכות הגנה בסייבר",2,12,[],"הגנה על רשתות OT/IT"]];
+const sel=new Set(),tb=document.getElementById('rows');
+D.forEach(([i,n,c,t,dep,h])=>{const r=document.createElement('tr');r.innerHTML=`<td><input type=checkbox data-i=${i}></td><td>${i}</td><td>${n}${dep.length?`<div class=dep>דורש #${dep.join(', #')}</div>`:''}</td><td class=num>${c}</td><td class=num>${t}</td><td class=muted>${h}</td>`;tb.appendChild(r)});
+const by=Object.fromEntries(D.map(d=>[d[0],d]));
+function finish(i,m={}){if(m[i]!=null)return m[i];const [, ,,t,dep]=by[i];return m[i]=t+Math.max(0,...dep.map(d=>finish(d,m)))}
+function upd(){const B=+inB.value,T=+inT.value;capB.textContent=B;capT.textContent=T;
+let cost=0,time=0,miss=[];sel.forEach(i=>{cost+=by[i][2];time=Math.max(time,finish(i));by[i][4].forEach(d=>{if(!sel.has(d))miss.push(`#${i} דורש #${d}`)})});
+document.getElementById('cost').textContent=cost.toFixed(2)+' מש"ח';document.getElementById('time').textContent=time+' חודשים';cnt.textContent=sel.size;
+const ok=cost<=B&&time<=T&&!miss.length;status.textContent=sel.size?(ok?'בר-ביצוע':'חריגה'):'—';status.className=sel.size?(ok?'ok':'bad'):'';
+warn.textContent=[cost>B?`חריגה בתקציב: ${(cost-B).toFixed(2)} מש"ח`:'',time>T?`חריגה בלו"ז: ${time-T} חודשים`:'',miss.length?'תלויות חסרות: '+miss.join(' · '):''].filter(Boolean).join(' | ')}
+tb.addEventListener('change',e=>{const i=+e.target.dataset.i;e.target.checked?sel.add(i):sel.delete(i);upd()});
+inB.oninput=inT.oninput=upd;const status=document.getElementById('status');upd();
+</script>
+</body></html>
